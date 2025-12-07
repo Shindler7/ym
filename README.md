@@ -85,6 +85,12 @@
 cargo doc --open --document-private-items --no-deps
 ```
 
+### История версий
+
+*0.1.1* (07.12.2025) — исправлены некорректные декларации типов в `settings.rs`.
+
+*0.1.0* (07.12.2025) — задумка, работающая концепция.
+
 ## License
 
 This project is licensed under the MIT license ([LICENSE] or <http://opensource.org/licenses/MIT>)

@@ -1,6 +1,6 @@
 [package]
 name = "ym"
-version = "0.1.0"
+version = "0.1.1"
 description = "An example generated using the simple-async template"
 authors = ["barmichev <barmichev@gmail.com>"]
 license = "MIT"

@@ -33,11 +33,12 @@ pub fn access_file_path() -> PathBuf {
 /// * C:\Users\Пользователь\AppData\Roaming\intelligence\ym\{ACCESS_FILE}
 #[cfg(not(debug_assertions))]
 pub fn access_file_path() -> PathBuf {
-    let proj_dirs = ProjectDirs::from("com", "intelligence", "ym")
+    let proj_dirs = directories::ProjectDirs::from("com", "intelligence", "ym")
         .expect("Не удаётся определить проектную директорию");
 
     if !proj_dirs.config_dir().exists() {
-        create_dir_all(proj_dirs.config_dir()).expect("Не удалось создать директорию для данных");
+        std::fs::create_dir_all(proj_dirs.config_dir())
+            .expect("Не удалось создать директорию для данных");
     }
 
     proj_dirs.config_dir().join(ACCESS_FILE)
