@@ -5,9 +5,6 @@ use std::path::PathBuf;
 /// Название файла для хранения конфигурации данных "по-умолчанию".
 pub const ACCESS_FILE: &str = "access.json";
 
-/// Базовая ссылка для доступа к API языковых моделей YandexGPT.
-pub const URL_API: &str = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion";
-
 /// Предоставляет полный путь `PathBut` к `ACCESS_FILE` в режиме разработки.
 #[cfg(debug_assertions)]
 pub fn access_file_path() -> PathBuf {

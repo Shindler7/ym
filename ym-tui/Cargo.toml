@@ -1,0 +1,24 @@
+[package]
+name = "ym"
+version = "0.2.0"
+description = "TUI for GPT"
+authors = ["barmichev <barmichev@gmail.com>"]
+license = "MIT"
+edition = "2024"
+
+[dependencies]
+ym-yagpt = {path = "../ym-yagpt"}
+clap = { version = "4.5.53", features = ["derive"] }
+color-eyre = "0.6.3"
+crossterm = { version = "0.28.1", features = ["event-stream"] }
+futures = "0.3.31"
+ratatui = "0.29.0"
+tokio = { version = "1.40.0", features = ["full"] }
+directories = "6.0.0"
+
+# Read the optimization guideline for more details: https://ratatui.rs/recipes/apps/release-your-app/#optimizations
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true

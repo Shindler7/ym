@@ -3,11 +3,12 @@
 //! Предполагается, что методы являются стартовыми для приложения. Модуль проводит первичные
 //! проверки "здоровья", а также настройку минимально требуемых данных (например, авторизация),
 //! до вызова терминала.
-use crate::libs::tools::{ask_user, user_input_with_question};
-use crate::libs::yagpt::AccessData;
+
 use crate::settings::access_file_path;
+use crate::utils::tools::{ask_user, user_input_with_question};
 use clap::Parser;
 use std::process::exit;
+use ym_yagpt::models::AccessData;
 
 /// Структура аргументов командной строки при запуске приложения.
 #[derive(Parser)]
@@ -90,7 +91,7 @@ fn init_user_data() {
     let api_key = loop_input_user("API-Key: ", AccessData::validator_api_key);
 
     // Создание конфигурационного файла с данными.
-    AccessData::new(id_catalog, api_key).save_it();
+    AccessData::new(id_catalog, api_key).save_me(access_file_path());
 }
 
 /// Получить от пользователя данные в командной строке.
