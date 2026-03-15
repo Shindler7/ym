@@ -182,17 +182,12 @@ impl GPTClient {
     }
 
     /// Общение модели с историей сообщений.
-    pub async fn chat_with_gpt(
-        &self,
-        messages: &[String],
-    ) -> Result<String, Box<dyn Error>> {
-
+    pub async fn chat_with_gpt(&self, messages: &[String]) -> Result<String, Box<dyn Error>> {
         let request_data = self.build_chat_request(messages);
         let response = self.send_request(&request_data).await?;
         let answer = self.extract_answer(response).await?;
 
         Ok(answer)
-
     }
 
     /// Формирование тела запроса с историей сообщений.

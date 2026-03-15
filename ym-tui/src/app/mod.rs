@@ -7,13 +7,10 @@
 //! - `messaging` — работа с сообщениями и GPT.
 
 mod core;
-mod ui;
 mod events;
 mod messaging;
+mod ui;
 
 // Реэкспорт для удобства использования
 pub use core::App;
-pub use events::{handle_crossterm_events, handle_key_event};
-pub use messaging::{send_message_to_gpt, add_system_message, clear_messages};
-pub use ui::draw_interface;
-
+pub use messaging::clear_messages;

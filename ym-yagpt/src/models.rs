@@ -3,10 +3,10 @@
 //! Модели данных для работы с YandexGPT API.
 
 use serde::{Deserialize, Serialize};
+use serde_json::json;
 use std::fmt::Display;
 use std::fs;
 use std::path::PathBuf;
-use serde_json::json;
 
 pub const URL_API: &str = "https://llm.api.cloud.yandex.net/foundationModels/v1/completion";
 
@@ -51,7 +51,10 @@ impl Display for AccessData {
 
 impl AccessData {
     pub fn new(id_catalog: String, api_key: String) -> Self {
-        Self { id_catalog, api_key }
+        Self {
+            id_catalog,
+            api_key,
+        }
     }
 
     pub fn has_data(&self) -> bool {

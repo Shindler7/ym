@@ -37,7 +37,7 @@ pub async fn handle_key_event(app: &mut App, key: KeyEvent) {
         (KeyModifiers::CONTROL, KeyCode::Char('r') | KeyCode::Char('R')) => {
             clear_messages(app);
         }
-        
+
         // Отправка сообщения.
         (_, KeyCode::Enter) => messaging::send_message_to_gpt(app).await,
 
@@ -93,7 +93,7 @@ pub async fn handle_key_event(app: &mut App, key: KeyEvent) {
         (_, KeyCode::Delete) => {
             delete_char_at_cursor(app);
         }
-        
+
         _ => {}
     }
 }

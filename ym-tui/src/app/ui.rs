@@ -5,10 +5,10 @@
 //! - <https://github.com/ratatui/ratatui/tree/master/examples>
 
 use ratatui::{
+    Frame,
     style::Stylize,
     text::Line,
     widgets::{Block, Paragraph},
-    Frame,
 };
 
 use super::core::App;

@@ -8,11 +8,11 @@ pub async fn send_message_to_gpt(app: &mut App) {
         // Добавляем сообщение пользователя в историю
         app.messages.push(format!("Вы: {}", app.input_buffer));
 
-        let gpt_answer = app.gpt_client.chat_with_gpt(&app.messages)
+        let gpt_answer = app
+            .gpt_client
+            .chat_with_gpt(&app.messages)
             .await
-            .unwrap_or_else(
-                |err| {format!("Ошибка ответа модели: {err}")}
-            );
+            .unwrap_or_else(|err| format!("Ошибка ответа модели: {err}"));
 
         // Добавляем ответ GPT в историю
         app.messages.push(gpt_answer);
@@ -35,7 +35,7 @@ fn update_scroll_offset(app: &mut App) {
 }
 
 /// Добавить системное сообщение в историю.
-pub fn add_system_message(app: &mut App, message: &str) {
+pub fn _add_system_message(app: &mut App, message: &str) {
     app.messages.push(format!("Система: {}", message));
 }
 
